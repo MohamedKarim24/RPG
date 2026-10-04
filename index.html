@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Mini RPG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Mini RPG - Interface</h1>
+
+    <section id="fiche-personnage">
+        <h2>Fiche du Héros</h2>
+        <img src="mignon.jpg" alt="Avatar Minion" class="avatar-hero">
+        <div class="stats-hero">
+            <p>Nom : <span id="val-nom"></span></p>
+            <p>Force : <span id="val-force"></span></p>
+            <p>Magie : <span id="val-magie"></span></p>
+            <p>Niveau : <span id="val-niveau"></span></p>
+            <p>Classe : <span id="val-classe"></span></p>
+            <p>Pièces d'or : <span id="val-pieces"></span></p>
+            <p>Possède la clé : <span id="val-cle"></span></p>
+            <p>Possède le chapeau : <span id="val-chapeau"></span></p>
+        </div>
+    </section>
+
+    <section id="zone-messages">
+        <h2>Journal des messages</h2>
+        <p id="message">Bienvenue dans le mini RPG !</p>
+    </section>
+
+    <section id="zone-combats">
+        <h2>Combats</h2>
+        <button id="btn-fantome">Combattre un fantôme</button>
+        <button id="btn-loup">Combattre un loup</button>
+        <button id="btn-paladin">Combattre un paladin</button>
+    </section>
+
+    <section id="zone-marchand">
+        <h2>Marchand</h2>
+        <button id="btn-acheter-cle">Acheter la clé (3 pièces)</button>
+        <button id="btn-acheter-chapeau">Acheter le chapeau (5 pièces)</button>
+    </section>
+
+    <section id="zone-boss">
+        <h2>Affrontement Final</h2>
+        <button id="btn-boss">Affronter le Boss</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
