@@ -22,7 +22,10 @@ const hero = "Mohamed";
 let force = 8;
 let magie = 5;
 let pièces_d_or = 50000;
-let classe
+let classe;
+let niveau = 0;
+let possedeCle = false;
+let possedeChapeau = false;
 
 
 function verifierPersonnage() {
@@ -52,14 +55,15 @@ console.log (CalculerNiveau());
 
 function CalculerClasse() {
     if (force > 0 && force >= magie * 2) {
-        return ("guerrier")
+        classe = "Guerrier";
     }
     else if (magie > 0 && magie >= force * 2) {
-        return ("mage")
+        classe = "Mage";
     }
     else {
-        return ("Aventurier")
+        classe = "Aventurier";
     }
+    return classe;
 }
 
 console.log(CalculerClasse());
@@ -89,7 +93,7 @@ function battreAdversaire(adversaire) {
     }
 
 CalculerNiveau();
-    CalculerClasse();
+CalculerClasse();
 
     console.log("Nouvelle force : " + force);
     console.log("Nouvelle magie : " + magie);
@@ -103,9 +107,6 @@ battreAdversaire("fantôme");
 battreAdversaire("loup");
 battreAdversaire("paladin");
 
-
-let possedeCle = false;
-let possedeChapeau = false;
 
 console.log("Possède la clé : " + possedeCle);
 console.log("Possède le chapeau : " + possedeChapeau);
