@@ -1,5 +1,119 @@
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+html, body {
+    height: 100vh;
+    overflow: hidden; /* Interdit le scroll */
+    background-color: #fef08a;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+}
+
+/* Grille sur 2 colonnes et 2 lignes de hauteur égale */
+body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40px calc(50vh - 30px) calc(50vh - 30px);
+    gap: 10px;
+    padding: 10px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Titre principal */
+h1 {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #1d4ed8;
+    font-size: 1.4rem;
+    text-shadow: 2px 2px 0px #ffdb4d;
+}
+
+/* Styles des 4 blocs */
+section {
+    background-color: white;
+    border: 3px solid #1d4ed8;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 0px rgba(29, 78, 216, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    color: #1d4ed8;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    border-bottom: 2px dashed #9ca3af;
+    padding-bottom: 2px;
+}
+
+/* Conteneur de stats pour aligner texte et image */
+#fiche-personnage {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+}
+
+.avatar-hero {
+    float: right;
+    width: 65px; /* Taille réduite pour tout faire tenir */
+    height: auto;
+    border: 2px solid #1d4ed8;
+    border-radius: 8px;
+    margin-left: 8px;
+}
+
+p {
+    margin: 2px 0;
+    font-size: 0.8rem;
+}
+
+span {
+    font-weight: bold;
+    color: #1d4ed8;
+}
+
+/* Journal des messages */
+#zone-messages {
+    background-color: #1f2937;
+    border-color: #ffcc00;
+}
+
+#zone-messages h2 {
+    color: #ffcc00;
+}
+
+#message {
+    color: #ffdb4d;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* Boutons d'action */
+button {
+    background-color: #1d4ed8;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 3px;
+    box-shadow: 0 3px 0px #1e3a8a;
+}
+
+button:hover {
+    background-color: #3b82f6;
+}
+
+#btn-boss {
+    background-color: #7c2d12;
+    box-shadow: 0 3px 0px #451a03;
+}
 :root {
     --jaune-minion: #ffcc00;
     --jaune-clair: #ffdb4d;
