@@ -19,7 +19,7 @@
 
 // TP personnage;
 const hero = "Mohamed";
-let force = 8;
+let force = 9;
 let magie = 5;
 let pièces_d_or = 50000;
 let classe;
@@ -46,12 +46,11 @@ function verifierPersonnage() {
 
 console.log(verifierPersonnage());
 
-niveau = force + magie
-
 function CalculerNiveau() {
-    return ("niveau = " + niveau )
+    niveau = force + magie;
+    return ("niveau = " + niveau);
 }
-console.log (CalculerNiveau());
+CalculerNiveau();
 
 function CalculerClasse() {
     if (force > 0 && force >= magie * 2) {
@@ -66,20 +65,20 @@ function CalculerClasse() {
     return classe;
 }
 
-console.log(CalculerClasse());
+CalculerClasse();
  
 function battreAdversaire(adversaire) {
     if (adversaire === "fantôme") {
         pièces_d_or += 2;
         magie += 1;
         if (magie > 10) { magie = 10; } 
-        console.log("Tu viens d'affronter le fantôme.");
+        AfficherMessage("Tu viens d'affronter le fantôme.");
     }
     else if (adversaire === "loup") {
         pièces_d_or += 2;
         force += 1;
         if (force > 10) { force = 10; } 
-        console.log("Tu viens d'affronter le loup.");
+        AfficherMessage("Tu viens d'affronter le loup.");
     }
     else if (adversaire === "paladin") {
         pièces_d_or += 1;
@@ -87,7 +86,7 @@ function battreAdversaire(adversaire) {
         force += 1;
         if (magie > 10) { magie = 10; }
         if (force > 10) { force = 10; }
-        console.log("Tu viens d'affronter le paladin.");
+        AfficherMessage("Tu viens d'affronter le paladin.");
     } else {
         return "Adversaire inconnu !";
     }
@@ -103,11 +102,6 @@ CalculerClasse();
     console.log("-------------");
 }
 
-battreAdversaire("fantôme");
-battreAdversaire("loup");
-battreAdversaire("paladin");
-
-
 console.log("Possède la clé : " + possedeCle);
 console.log("Possède le chapeau : " + possedeChapeau);
 console.log("-------------");
@@ -118,7 +112,7 @@ function afficherPieces() {
 
 function acheterObjet(objet) {
     if (objet === "cle") {
-        if (possedeCle) {
+        if (possedeCle === true) {
             console.log("Vous possédez déjà la clé !");
         } else if (pièces_d_or >= 3) {
             pièces_d_or -= 3;
@@ -149,10 +143,8 @@ function acheterObjet(objet) {
     console.log("-------------");
 }
 
-acheterObjet("cle");
-acheterObjet("cle");
-acheterObjet("chapeau");
-
+// acheterObjet("cle");
+// acheterObjet("chapeau");
 
 function battreBoss() {
     console.log("--- Tentative d'affronter le boss ---");
@@ -160,22 +152,19 @@ function battreBoss() {
     console.log("Possède la clé : " + possedeCle);
 
     if (niveau === 20 && possedeCle === true) {
-        console.log("Victoire ! Vous avez vaincu le boss avec brio !");
-        
+        AfficherMessage("Victoire ! Vous avez vaincu le boss avec brio !");
         pièces_d_or += 10;
-        
         possedeCle = false;
-        
         afficherPieces();
-        console.log("Nouvelle valeur de possedeCle (consommée) : " + possedeCle);
+        AfficherMessage("Nouvelle valeur de possedeCle (consommée) : " + possedeCle);
     } else {
-        console.log("Combat impossible : vous devez être exactement au niveau 20 et posséder la clé.");
+        AfficherMessage("Combat impossible : vous devez être exactement au niveau 20 et posséder la clé.");
     }
     console.log("-------------");
+    CalculerNiveau();
 }
 
 battreBoss();
-
 
 function afficherResumeFinal() {
     const resume = `=== RÉSUMÉ FINAL DU PERSONNAGE ===
@@ -188,90 +177,55 @@ Pièces d'or : ${pièces_d_or}
 Possède la clé : ${possedeCle}
 Possède le chapeau : ${possedeChapeau}
 ===================================`;
-
     console.log(resume);
 }
-
 afficherResumeFinal();
 
 
 
-
-
-function afficherMessage(msg) {
-    const messageElement = document.querySelector("#message");
-    messageElement.textContent = msg;
+function AffichagePersonnage() {
+document.querySelector("#force").textContent = force;
+document.querySelector("#Nom").textContent = hero;
+document.querySelector("#magie").textContent = magie;
+document.querySelector("#Classe").textContent = classe;
+document.querySelector("#Pièce").textContent = pièces_d_or;
+document.querySelector("#Niveau").textContent = niveau;
+document.querySelector("#Clé").textContent = possedeCle;
+document.querySelector("#Chapeau").textContent = possedeChapeau;
 }
-
-function afficherPersonnage() {
-    document.querySelector("#val-nom").textContent = hero;
-    document.querySelector("#val-force").textContent = force;
-    document.querySelector("#val-magie").textContent = magie;
-    document.querySelector("#val-niveau").textContent = niveau;
-    document.querySelector("#val-classe").textContent = classe;
-    document.querySelector("#val-pieces").textContent = pièces_d_or;
-    document.querySelector("#val-cle").textContent = possedeCle;
-    document.querySelector("#val-chapeau").textContent = possedeChapeau;
-}
-
-function battreAdversaire(adversaire) {
-    if (adversaire === "fantôme") {
-        pièces_d_or += 2;
-        magie += 1;
-        if (magie > 10) { magie = 10; }
-        afficherMessage("Tu viens d'affronter le fantôme et de remporter tes récompenses !");
-    }
-    else if (adversaire === "loup") {
-        pièces_d_or += 2;
-        force += 1;
-        if (force > 10) { force = 10; }
-        afficherMessage("Tu viens d'affronter le loup et de remporter tes récompenses !");
-    }
-    else if (adversaire === "paladin") {
-        pièces_d_or += 1;
-        magie += 1;
-        force += 1;
-        if (magie > 10) { magie = 10; }
-        if (force > 10) { force = 10; }
-        afficherMessage("Tu viens d'affronter le paladin et de remporter tes récompenses !");
-    } else {
-        afficherMessage("Adversaire inconnu !");
-        return;
-    }
-
-    CalculerNiveau();
-    CalculerClasse();
-    afficherPersonnage(); 
-}
-
-document.querySelector("#btn-fantome").addEventListener("click", function() {
-    battreAdversaire("fantôme");
-});
-
-document.querySelector("#btn-loup").addEventListener("click", function() {
-    battreAdversaire("loup");
-});
-
-document.querySelector("#btn-paladin").addEventListener("click", function() {
-    battreAdversaire("paladin");
-});
-
-document.querySelector("#btn-acheter-cle").addEventListener("click", function() {
-    acheterObjet("cle");
-    afficherPersonnage();
-});
-
-document.querySelector("#btn-acheter-chapeau").addEventListener("click", function() {
-    acheterObjet("chapeau");
-    afficherPersonnage();
-});
-
-document.querySelector("#btn-boss").addEventListener("click", function() {
-    battreBoss();
-    afficherPersonnage();
-});
-
 
 CalculerNiveau();
 CalculerClasse();
-afficherPersonnage();
+AffichagePersonnage();
+
+
+function AfficherMessage(message) {
+    document.querySelector("#Message").textContent = message
+}
+
+AfficherMessage("les message en jeu s'afficheront ici");
+
+document.querySelector("#btn-fantome").addEventListener("click", function() {
+    battreAdversaire("fantôme");
+    AffichagePersonnage()
+});
+document.querySelector("#btn-loup").addEventListener("click", function() {
+    battreAdversaire("loup");
+    AffichagePersonnage()
+});
+document.querySelector("#btn-paladin").addEventListener("click", function() {
+    battreAdversaire("paladin");
+    AffichagePersonnage()
+});
+document.querySelector("#btn-cle").addEventListener("click", function() {
+    acheterObjet("cle");
+    AffichagePersonnage()
+});
+document.querySelector("#btn-chapeau").addEventListener("click", function() {
+    acheterObjet("chapeau");
+    AffichagePersonnage()
+});
+document.querySelector("#btn-boss").addEventListener("click", function() {
+    battreBoss();
+    AffichagePersonnage()
+});

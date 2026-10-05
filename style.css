@@ -1,247 +1,30 @@
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    height: 100vh;
-    overflow: hidden; /* Interdit le scroll */
-    background-color: #fef08a;
-    font-family: 'Comic Sans MS', 'Arial', sans-serif;
-}
-
-/* Grille sur 2 colonnes et 2 lignes de hauteur égale */
 body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 40px calc(50vh - 30px) calc(50vh - 30px);
-    gap: 10px;
-    padding: 10px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-/* Titre principal */
-h1 {
-    grid-column: 1 / -1;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background-color: pink;
     text-align: center;
-    color: #1d4ed8;
-    font-size: 1.4rem;
-    text-shadow: 2px 2px 0px #ffdb4d;
+    align-items: center;
 }
-
-/* Styles des 4 blocs */
-section {
-    background-color: white;
-    border: 3px solid #1d4ed8;
-    border-radius: 12px;
-    padding: 10px;
-    box-shadow: 0 4px 0px rgba(29, 78, 216, 0.2);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+h1 {
+    color: #333;
+}
+#btn-boss {
+    cursor: pointer;
+    color: white;
+    background-color: red;
+}
+#btn-fantome, #btn-loup, #btn-paladin {
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+}
+#btn-cle, #btn-chapeau {
+    cursor: pointer;
+    color: white;
+    background-color: green;
 }
 
 h2 {
-    color: #1d4ed8;
-    font-size: 0.95rem;
-    margin-bottom: 6px;
-    border-bottom: 2px dashed #9ca3af;
-    padding-bottom: 2px;
-}
+    color: #333;
+    margin-top: 20px;
 
-/* Conteneur de stats pour aligner texte et image */
-#fiche-personnage {
-    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-}
-
-.avatar-hero {
-    float: right;
-    width: 65px; /* Taille réduite pour tout faire tenir */
-    height: auto;
-    border: 2px solid #1d4ed8;
-    border-radius: 8px;
-    margin-left: 8px;
-}
-
-p {
-    margin: 2px 0;
-    font-size: 0.8rem;
-}
-
-span {
-    font-weight: bold;
-    color: #1d4ed8;
-}
-
-/* Journal des messages */
-#zone-messages {
-    background-color: #1f2937;
-    border-color: #ffcc00;
-}
-
-#zone-messages h2 {
-    color: #ffcc00;
-}
-
-#message {
-    color: #ffdb4d;
-    font-size: 0.85rem;
-    font-style: italic;
-}
-
-/* Boutons d'action */
-button {
-    background-color: #1d4ed8;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 6px 10px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 3px;
-    box-shadow: 0 3px 0px #1e3a8a;
-}
-
-button:hover {
-    background-color: #3b82f6;
-}
-
-#btn-boss {
-    background-color: #7c2d12;
-    box-shadow: 0 3px 0px #451a03;
-}
-:root {
-    --jaune-minion: #ffcc00;
-    --jaune-clair: #ffdb4d;
-    --bleu-salopette: #1d4ed8;
-    --bleu-clair: #3b82f6;
-    --noir-gant: #1f2937;
-    --gris-metal: #9ca3af;
-    --fond-page: #fef08a; 
-    --texte-principal: #111827;
-}
-
-body {
-    background-color: var(--fond-page);
-    color: var(--texte-principal);
-    font-family: 'Comic Sans MS', 'Arial', sans-serif; 
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
-    color: var(--bleu-salopette);
-    text-shadow: 2px 2px 0px var(--jaune-clair), 4px 4px 0px var(--noir-gant);
-    font-size: 2.5rem;
-    margin-bottom: 25px;
-}
-
-
-section {
-    background-color: white;
-    border: 4px solid var(--bleu-salopette);
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 8px 0px rgba(29, 78, 216, 0.2);
-}
-
-h2 {
-    color: var(--bleu-salopette);
-    border-bottom: 2px dashed var(--gris-metal);
-    padding-bottom: 5px;
-    margin-top: 0;
-}
-
-#fiche-personnage {
-    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-    border-color: var(--jaune-minion);
-    box-shadow: 0 8px 0px rgba(255, 204, 0, 0.3);
-}
-
-#fiche-personnage h2 {
-    color: #b45309;
-    border-bottom-color: var(--jaune-minion);
-}
-
-button {
-    background-color: var(--bleu-salopette);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 12px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 5px;
-    box-shadow: 0 4px 0px #1e3a8a;
-    transition: all 0.1s ease;
-}
-
-button:hover {
-    background-color: var(--bleu-clair);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 0px #1e3a8a;
-}
-
-button:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0px #1e3a8a;
-}
-
-#btn-boss {
-    background-color: #7c2d12;
-    box-shadow: 0 4px 0px #451a03;
-}
-
-#btn-boss:hover {
-    background-color: #9a3412;
-}
-
-
-#zone-messages {
-    background-color: var(--noir-gant);
-    color: white;
-    border: 4px solid var(--jaune-minion);
-    box-shadow: 0 8px 0px rgba(31, 41, 55, 0.4);
-}
-
-#zone-messages h2 {
-    color: var(--jaune-minion);
-    border-bottom-color: var(--gris-metal);
-}
-
-#message {
-    font-size: 1.1rem;
-    font-style: italic;
-    color: var(--jaune-clair);
-}
-
-/* Mise en valeur du texte */
-span {
-    font-weight: bold;
-    color: var(--bleu-salopette);
-}
-
-.avatar-hero {
-    float: right; 
-    width: 150px; 
-    height: auto;
-    border: 4px solid var(--bleu-salopette); 
-    border-radius: 15px; 
-    background-color: white;
-    box-shadow: 0 4px 0px rgba(29, 78, 216, 0.2);
-    margin-left: 15px;
-    margin-bottom: 15px;
-}
-
-
-.stats-hero {
-    overflow: hidden; 
 }
